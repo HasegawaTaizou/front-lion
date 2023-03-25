@@ -1,0 +1,142 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: grid;
+  width: 100%;
+  grid-template-rows: 10vh 75vh 15vh;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+header {
+  background-color: var(--secondary-color);
+  padding: 0px 96px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo__text {
+  font-weight: 700;
+  font-size: 1.5rem;
+  max-width: 75px;
+}
+
+.logout-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logout__text {
+  font-size: 2.25rem;
+}
+
+main {
+  padding: 98px 96px;
+  display: grid;
+  grid-template-areas:
+    "title   student courses"
+    "devices student courses";
+  grid-template-columns: 1fr 0.5fr 1fr;
+  justify-content: center;
+}
+
+.choose-course__title {
+  grid-area: title;
+  font-size: 3.625rem;
+  font-family: 700;
+  color: #353535;
+}
+
+.choose-course__bold {
+  color: var(--secondary-color);
+}
+
+.choose-course__image-devices {
+  grid-area: devices;
+}
+
+.choose-course__image-student {
+  grid-area: student;
+}
+
+.choose-course__courses-container {
+  grid-area: courses;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.course__card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 400px;
+  height: 200px;
+  background-color: var(--secondary-color);
+}
+
+.card__text {
+  font-size: 4rem;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--secondary-color);
+  padding: 0px 96px;
+}
+
+.informations-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.information {
+  display: flex;
+  gap: 24px;
+  font-weight: 400;
+}
+
+.copyright__text {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+}
+
+.social-medias-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  border: 1px solid var(--primary-color);
+}
+
+.social-media > i {
+  font-size: 1.375rem;
+  color: var(--primary-color);
+  line-height: 0;
+}
