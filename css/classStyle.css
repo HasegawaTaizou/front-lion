@@ -100,8 +100,9 @@ header {
 .students-container {
   font-family: "Poppins", sans-serif;
   display: flex;
-  gap: 62px;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 62px;
   margin: 50px 96px 115px 96px;
 }
 
