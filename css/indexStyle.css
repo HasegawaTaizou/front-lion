@@ -29,6 +29,7 @@ header {
   font-weight: 700;
   font-size: 1.5rem;
   max-width: 75px;
+  color: var(--primary-color);
 }
 
 .logout-container {
@@ -39,6 +40,7 @@ header {
 
 .logout__text {
   font-size: 2.25rem;
+  color: var(--primary-color);
 }
 
 main {
@@ -56,6 +58,7 @@ main {
   font-size: 3.625rem;
   font-family: 700;
   color: #353535;
+  user-select: none;
 }
 
 .choose-course__bold {
@@ -87,6 +90,17 @@ main {
   width: 400px;
   height: 200px;
   background-color: var(--secondary-color);
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+  user-select: none;
+}
+
+.course__card:hover {
+  box-shadow: 0 4px 4px #999;
+  transition: all 0.2s;
+  transform: scale(1.05);
+  -webkit-filter: drop-shadow(15px 10px 5px rgb(188, 194, 229));
+  filter: drop-shadow(15px 10px 5px rgb(188, 194, 229));
+  cursor: pointer;
 }
 
 .card__text {
@@ -111,12 +125,14 @@ footer {
   display: flex;
   gap: 24px;
   font-weight: 400;
+  user-select: none;
 }
 
 .copyright__text {
   display: flex;
   align-items: center;
   font-weight: 400;
+  user-select: none;
 }
 
 .social-medias-container {
@@ -133,6 +149,11 @@ footer {
   height: 48px;
   border-radius: 100%;
   border: 1px solid var(--primary-color);
+}
+
+.social-media:hover {
+  background-color: #bcc2e56e;
+  transition: all 0.5s;
 }
 
 .social-media > i {
