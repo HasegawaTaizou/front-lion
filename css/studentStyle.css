@@ -115,13 +115,8 @@ main {
 }
 
 .grade__bar {
-  background-color: #3347b0;
-  border-radius: 4px 4px 0px 0px;
+  border-radius: 4px;
   height: 50%;
-}
-
-.subject__grade {
-  color: #3347b0;
 }
 
 .subject__name {

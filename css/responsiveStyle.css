@@ -1,7 +1,4 @@
 @media (max-width: 1290px) {
-  body {
-    grid-template-rows: 10vh auto 15vh;
-  }
   header {
     padding: 0px 46px;
   }
@@ -10,7 +7,24 @@
     flex-direction: column;
     align-items: center;
     gap: 42px;
-    padding: 50px 0px;
+    padding: 0px 46px;
+  }
+
+  .choose-course__title {
+    text-align: center;
+    max-width: 470px;
+  }
+
+  .choose-course__image-devices {
+    display: none;
+  }
+
+  .choose-course__image-student {
+    display: none;
+  }
+
+  .choose-course__courses-container {
+    flex-direction: row;
   }
 
   .social-medias-container {
@@ -28,15 +42,39 @@
 
 @media (max-width: 945px) {
   body {
-    grid-template-rows: 10vh auto auto;
+    grid-template-rows: 10vh 75vh auto;
+  }
+
+  main {
+    padding: 0px 12px;
   }
 
   .logo__text {
     display: none;
   }
 
-  .return__text {
+  .logout__text {
     display: none;
+  }
+
+  .choose-course__title {
+    font-size: 2rem;
+    max-width: 260px;
+  }
+
+  .choose-course__courses-container {
+    flex-direction: column;
+  }
+
+  .course__card {
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    gap: 12px;
+  }
+
+  .card__text {
+    font-size: 3rem;
   }
 
   footer {
@@ -64,58 +102,5 @@
     grid-area: social;
     display: flex;
     gap: 12px;
-  }
-}
-
-@media (max-width: 600px) {
-  .student-container {
-    width: 200px;
-    height: 335px;
-  }
-
-  .student__image {
-    width: 200px;
-    height: 200px;
-  }
-
-  .graph-container {
-    flex-direction: column;
-    width: 330px;
-  }
-
-  .subject {
-    grid-template-areas:
-      "name ."
-      "bar grade";
-    grid-template-columns: auto;
-    grid-template-rows: auto auto;
-  }
-
-  .subject__grade-container {
-    grid-area: bar;
-  }
-
-  .subject__grade {
-    grid-area: grade;
-  }
-
-  .subject__name {
-    grid-area: name;
-    width: 100%;
-  }
-
-  .subject__grade-container {
-    width: 250px;
-    height: 16px;
-  }
-}
-
-@media (max-width: 390px) {
-  .graph-container {
-    width: 240px;
-  }
-
-  .subject__grade-container {
-    width: 150px;
   }
 }
