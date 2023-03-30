@@ -103,6 +103,11 @@ main {
   cursor: pointer;
 }
 
+.card__icon {
+  width: 96px;
+  height: 75px;
+}
+
 .card__text {
   font-size: 4rem;
 }

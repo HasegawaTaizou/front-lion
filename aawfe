@@ -1,0 +1,37 @@
+//  <div class="choose-course__courses-container">
+//         <div class="course__card">
+//           <img src="./img/ds-icon.png" alt="DS Icon" class="card__icon" />
+//           <span class="card__text">DS</span>
+//         </div>
+//         <div class="course__card">
+//           <img
+//             src="./img/network-icon.png"
+//             alt="Network Icon"
+//             class="card__icon"
+//           />
+//           <span class="card__text">REDES</span>
+//         </div>
+//       </div> 
+
+// return {
+//     nome: dadosCursos.map(curso => curso.nome),
+//     icone: dadosCursos.map(curso => curso.icone)
+// }
+
+// const coursesContainer = document.querySelector(
+//   ".choose-course__courses-container"
+// );
+// const courseCard = document.createElement("div");
+// const courseIcon = document.createElement("img");
+// const cardText = document.createElement("span");
+
+// const fillData = function () {
+//   const courseData = "http://localhost:8080/v1/lion-school/cursos";
+//     console.log(courseData);
+// };
+
+// fillData()
+
+
+
+
