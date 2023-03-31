@@ -7,8 +7,8 @@ const listCourses = async function () {
   const data = await response.json();
 
   return {
-    acronym: data.map((course) => course.sigla),
-    icon: data.map((course) => course.icone),
+    acronym: data.cursos.map((course) => course.sigla),
+    icon: data.cursos.map((course) => course.icone),
   };
 };
 
