@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="./css/variables.css" />
     <link rel="stylesheet" href="./css/classStyle.css" />
     <link rel="stylesheet" href="./css/classResponsiveStyle.css" />
+    <script src="./js/list-students.js" defer></script>
   </head>
   <body>
     <header>
@@ -45,10 +46,10 @@
     </header>
     <main>
       <div class="status-container">
-        <select name="status" id="" class="status__filter">
-          <option value="">Status</option>
-          <option value="finished">Finalizado</option>
-          <option value="studying">Cursando</option>
+        <select name="status" class="status__filter">
+          <option class="filter__field" value="">Status</option>
+          <option class="filter__field" value="Finalizado">Finalizado</option>
+          <option class="filter__field" value="Cursando">Cursando</option>
         </select>
         <div class="status__legend-container">
           <span class="legend__title">LEGENDA</span>
@@ -63,80 +64,7 @@
         </div>
       </div>
       <h1 class="course__title">Desenvolvimento de sistemas</h1>
-      <div class="students-container">
-        <div class="student">
-          <img
-            src="./img/woman-image.png"
-            alt="Woman Image"
-            class="student__image"
-          />
-          <span class="student__name">HÉLIDA BENTO DE OLIVEIRA LINS</span>
-        </div>
-        <div class="student">
-          <img
-            src="./img/man-image.png"
-            alt="Man Image"
-            class="student__image"
-          />
-          <span class="student__name">JOSÉ MATHEUS DA SILVA MIRANDA</span>
-        </div>
-        <div class="student">
-          <img
-            src="./img/man-image.png"
-            alt="Man Image"
-            class="student__image"
-          />
-          <span class="student__name">JOSÉ MATHEUS DA SILVA MIRANDA</span>
-        </div>
-        <div class="student">
-          <img
-            src="./img/man-image.png"
-            alt="Man Image"
-            class="student__image"
-          />
-          <span class="student__name">JOSÉ MATHEUS DA SILVA MIRANDA</span>
-        </div>
-        <div class="student">
-          <img
-            src="./img/man-image.png"
-            alt="Man Image"
-            class="student__image"
-          />
-          <span class="student__name">JOSÉ MATHEUS DA SILVA MIRANDA</span>
-        </div>
-        <div class="student">
-          <img
-            src="./img/man-image.png"
-            alt="Man Image"
-            class="student__image"
-          />
-          <span class="student__name">JOSÉ MATHEUS DA SILVA MIRANDA</span>
-        </div>
-        <div class="student">
-          <img
-            src="./img/man-image.png"
-            alt="Man Image"
-            class="student__image"
-          />
-          <span class="student__name">JOSÉ MATHEUS DA SILVA MIRANDA</span>
-        </div>
-        <div class="student">
-          <img
-            src="./img/man-image.png"
-            alt="Man Image"
-            class="student__image"
-          />
-          <span class="student__name">JOSÉ MATHEUS DA SILVA MIRANDA</span>
-        </div>
-        <div class="student">
-          <img
-            src="./img/man-image.png"
-            alt="Man Image"
-            class="student__image"
-          />
-          <span class="student__name">JOSÉ MATHEUS DA SILVA MIRANDA</span>
-        </div>
-      </div>
+      <div class="students-container"></div>
     </main>
     <footer>
       <ul class="informations-container">

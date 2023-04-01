@@ -7,43 +7,74 @@ const listStudent = async function () {
   const data = await response.json();
 
   return {
+    image: data.aluno[0].foto,
+    name: data.aluno[0].nome,
+  };
+};
+
+const listStudentSubjects = async function () {
+  const studentData =
+    "http://localhost:8080/v1/lion-school/alunos-disciplinas/20151001001";
+
+  const response = await fetch(studentData);
+  const data = await response.json();
+
+  return {
     name: data.disciplinas[0].map((disciplina) => disciplina.nome),
     average: data.disciplinas[0].map((disciplina) => disciplina.media),
   };
 };
 
 const fillCourseData = async function () {
+  const studentSubjectsData = await listStudentSubjects();
   const studentData = await listStudent();
 
-  for (let i = 0; i < studentData.name.length; i++) {
-    let name = studentData.name[i];
-    name = name.split(" ");
-    console.log(name);
+  const studentContainer = document.querySelector(".student-container");
 
-    let sigla = []
-    sigla += name[0][0];
-    console.log(sigla);
+  const studentImage = document.createElement("img");
+  studentImage.classList.add("student__image");
+  studentImage.setAttribute("src", studentData.image);
+
+  const studentName = document.createElement("span");
+  studentName.classList.add("student__name");
+  studentName.textContent = studentData.name;
+
+  studentContainer.append(studentImage, studentName);
+
+  let acronyms = [];
+
+  for (let i = 0; i < studentSubjectsData.name.length; i++) {
+    let names = studentSubjectsData.name[i];
+    names = names.split(" ");
+
+    let acronym = "";
+
+    names.forEach((name) => {
+      let separateNames = [];
+      separateNames.push(name);
+
+      acronym += separateNames[0][0];
+    });
+
+    acronyms.push(acronym.toUpperCase());
   }
+  console.log(acronyms);
 
   const graphContainer = document.querySelector(".graph-container");
 
   let subject;
-
   let subjectGrade;
-
   let subjectGradeContainer;
-
   let gradeBar;
-
   let subjectName;
 
-  for (let i = 0; i < studentData.average.length; i++) {
+  for (let i = 0; i < studentSubjectsData.average.length; i++) {
     subject = document.createElement("div");
     subject.classList.add("subject");
 
     subjectGrade = document.createElement("span");
     subjectGrade.classList.add("subject__grade");
-    subjectGrade.textContent = studentData.average[i];
+    subjectGrade.textContent = studentSubjectsData.average[i];
 
     subjectGradeContainer = document.createElement("div");
     subjectGradeContainer.classList.add("subject__grade-container");
@@ -55,7 +86,7 @@ const fillCourseData = async function () {
 
     subjectName = document.createElement("div");
     subjectName.classList.add("subject__name");
-    subjectName.textContent = studentData.name[i];
+    subjectName.textContent = acronyms[i];
 
     subject.append(subjectGrade, subjectGradeContainer, subjectName);
     graphContainer.append(subject);

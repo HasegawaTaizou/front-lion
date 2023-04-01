@@ -1,49 +1,135 @@
 "use strict";
 
-const listCourses = async function () {
-  const courseData = "http://localhost:8080/v1/lion-school/cursos";
+const listStudents = async function () {
+  const studentsData = "http://localhost:8080/v1/lion-school/cursos/RDS";
 
-  const response = await fetch(courseData);
+  const response = await fetch(studentsData);
   const data = await response.json();
 
   return {
-    acronym: data.map((course) => course.sigla),
-    icon: data.map((course) => course.icone),
+    image: data.alunos.map((aluno) => aluno.foto),
+    name: data.alunos.map((aluno) => aluno.nome),
+    status: data.alunos.map((aluno) => aluno.status),
   };
 };
 
-const fillCourseData = async function () {
-  const courseData = await listCourses();
+const fillStudentsData = async function () {
+  const studentsData = await listStudents();
 
-  const coursesContainer = document.querySelector(
-    ".choose-course__courses-container"
-  );
+  const studentsContainer = document.querySelector(".students-container");
 
-  let courseCard;
-  let courseIcon;
-  let cardText;
+  let student;
+  let studentImage;
+  let studentName;
 
-  for (let i = 0; i < courseData.acronym.length; i++) {
-    courseCard = document.createElement("div");
-    courseCard.classList.add("course__card");
+  studentsContainer.innerHTML = "";
 
-    courseCard = document.createElement("div");
-    cardText = document.createElement("span");
-    cardText.classList.add("card__text");
-    cardText.textContent = courseData.acronym[i];
-    console.log(cardText);
+  for (let i = 0; i < studentsData.image.length; i++) {
+    student = document.createElement("div");
+    student.classList.add("student");
 
-    courseCard = document.createElement("div");
-    courseCard.classList.add("course__card");
+    studentImage = document.createElement("img");
+    studentImage.classList.add("student__image");
+    studentImage.setAttribute("src", studentsData.image[i]);
 
-    courseIcon = document.createElement("img");
-    courseIcon.classList.add("card__icon");
-    courseIcon.setAttribute("src", courseData.icon[i]);
-    console.log(courseIcon);
+    studentName = document.createElement("span");
+    studentName.classList.add("student__name");
+    studentName.textContent = studentsData.name[i];
 
-    courseCard.append(courseIcon, cardText);
-    coursesContainer.append(courseCard);
+    if (studentsData.status[i] == "Cursando") {
+      student.style.backgroundColor = "#3347B0";
+    } else {
+      student.style.backgroundColor = "#E5B657";
+    }
+    student.append(studentImage, studentName);
+
+    studentsContainer.append(student);
   }
 };
 
-fillCourseData();
+fillStudentsData();
+
+const fillStudentsStudyingData = async function () {
+  const studentsData = await listStudents();
+
+  const studentsContainer = document.querySelector(".students-container");
+
+  let student;
+  let studentImage;
+  let studentName;
+
+  studentsContainer.innerHTML = "";
+
+  for (let i = 0; i < studentsData.image.length; i++) {
+    if (studentsData.status[i] == "Finalizado") {
+      student = document.createElement("div");
+      student.classList.add("student");
+
+      studentImage = document.createElement("img");
+      studentImage.classList.add("student__image");
+      studentImage.setAttribute("src", studentsData.image[i]);
+
+      studentName = document.createElement("span");
+      studentName.classList.add("student__name");
+      studentName.textContent = studentsData.name[i];
+
+      student.style.backgroundColor = "#3347B0";
+      student.append(studentImage, studentName);
+      studentsContainer.append(student);
+    }
+  }
+};
+
+const fillStudentsFinishedData = async function () {
+  const studentsData = await listStudents();
+
+  const studentsContainer = document.querySelector(".students-container");
+
+  let student;
+  let studentImage;
+  let studentName;
+
+  studentsContainer.innerHTML = "";
+
+  for (let i = 0; i < studentsData.image.length; i++) {
+    if (studentsData.status[i] == "Cursando") {
+      student = document.createElement("div");
+      student.classList.add("student");
+
+      studentImage = document.createElement("img");
+      studentImage.classList.add("student__image");
+      studentImage.setAttribute("src", studentsData.image[i]);
+
+      studentName = document.createElement("span");
+      studentName.classList.add("student__name");
+      studentName.textContent = studentsData.name[i];
+
+      student.style.backgroundColor = "#E5B657";
+      student.append(studentImage, studentName);
+      studentsContainer.append(student);
+    }
+  }
+};
+
+const select = document.querySelector(".status__filter");
+
+const getSelectValue = function () {
+  const value = select.options[select.selectedIndex].value;
+  console.log(value);
+  return value;
+};
+
+const filterStudents = function () {
+  if (getSelectValue() == "") {
+    fillStudentsData();
+    console.log("vazio");
+  } else if (getSelectValue() == "Cursando") {
+    fillStudentsStudyingData();
+    console.log("funcao cursando");
+  } else if (getSelectValue() == "Finalizado") {
+    fillStudentsFinishedData();
+    console.log("funcao finalizado");
+  }
+};
+
+select.addEventListener("change", filterStudents);
