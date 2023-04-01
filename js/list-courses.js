@@ -7,6 +7,7 @@ const listCourses = async function () {
   const data = await response.json();
 
   return {
+    name: data.cursos.map((course) => course.nome),
     acronym: data.cursos.map((course) => course.sigla),
     icon: data.cursos.map((course) => course.icone),
   };
@@ -24,26 +25,48 @@ const fillCourseData = async function () {
   let cardText;
 
   for (let i = 0; i < courseData.acronym.length; i++) {
-    courseCard = document.createElement("div");
+    courseCard = document.createElement("a");
+    courseCard.setAttribute("href", "./class.html");
     courseCard.classList.add("course__card");
+    courseCard.dataset.index = i;
 
-    courseCard = document.createElement("div");
     cardText = document.createElement("span");
     cardText.classList.add("card__text");
     cardText.textContent = courseData.acronym[i];
-    console.log(cardText);
 
-    courseCard = document.createElement("div");
     courseCard.classList.add("course__card");
 
     courseIcon = document.createElement("img");
     courseIcon.classList.add("card__icon");
     courseIcon.setAttribute("src", courseData.icon[i]);
-    console.log(courseIcon);
 
     courseCard.append(courseIcon, cardText);
     coursesContainer.append(courseCard);
   }
+
+  const getCourseCardIndex = function (event) {
+    const getAcronymText = function () {
+      localStorage.setItem(
+        "acronym",
+        courseData.acronym[event.currentTarget.dataset.index]
+      );
+
+      localStorage.setItem(
+        "courseName",
+        courseData.name[event.currentTarget.dataset.index]
+      );
+
+      console.log(localStorage.getItem("acronym"));
+      console.log(localStorage.getItem("courseName"));
+    };
+
+    getAcronymText();
+  };
+
+  const coursesCards = document.querySelectorAll(".course__card");
+  coursesCards.forEach((courseCard) => {
+    courseCard.addEventListener("click", getCourseCardIndex);
+  });
 };
 
 fillCourseData();

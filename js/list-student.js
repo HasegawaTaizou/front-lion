@@ -1,7 +1,7 @@
 "use strict";
 
-const listStudent = async function () {
-  const studentData = "http://localhost:8080/v1/lion-school/alunos/20151001001";
+const listStudent = async function (registration) {
+  const studentData = `http://localhost:8080/v1/lion-school/alunos/${registration}`;
 
   const response = await fetch(studentData);
   const data = await response.json();
@@ -12,9 +12,10 @@ const listStudent = async function () {
   };
 };
 
-const listStudentSubjects = async function () {
-  const studentData =
-    "http://localhost:8080/v1/lion-school/alunos-disciplinas/20151001001";
+let registration = localStorage.getItem("registrationNumber");
+
+const listStudentSubjects = async function (registration) {
+  const studentData = `http://localhost:8080/v1/lion-school/alunos-disciplinas/${registration}`;
 
   const response = await fetch(studentData);
   const data = await response.json();
@@ -26,8 +27,8 @@ const listStudentSubjects = async function () {
 };
 
 const fillCourseData = async function () {
-  const studentSubjectsData = await listStudentSubjects();
-  const studentData = await listStudent();
+  const studentSubjectsData = await listStudentSubjects(registration);
+  const studentData = await listStudent(registration);
 
   const studentContainer = document.querySelector(".student-container");
 
@@ -58,7 +59,6 @@ const fillCourseData = async function () {
 
     acronyms.push(acronym.toUpperCase());
   }
-  console.log(acronyms);
 
   const graphContainer = document.querySelector(".graph-container");
 

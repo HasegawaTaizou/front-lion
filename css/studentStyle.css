@@ -46,6 +46,7 @@ main {
   padding: 100px 96px 60px 96px;
   display: flex;
   justify-content: space-between;
+  min-height: 75vh;
 }
 
 .student-container {

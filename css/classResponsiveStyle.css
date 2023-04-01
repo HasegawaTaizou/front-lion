@@ -92,3 +92,10 @@
     gap: 12px;
   }
 }
+
+@media (max-height: 800px) {
+  .logo__image {
+    width: 48px;
+    height: 48px;
+  }
+}

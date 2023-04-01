@@ -51,6 +51,7 @@ main {
     "devices student courses";
   grid-template-columns: 1fr 0.5fr 1fr;
   justify-content: center;
+  min-height: 75vh;
 }
 
 .choose-course__title {
@@ -92,6 +93,7 @@ main {
   background-color: var(--secondary-color);
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
   user-select: none;
+  color: var(--primary-color);
 }
 
 .course__card:hover {
@@ -100,7 +102,6 @@ main {
   transform: scale(1.05);
   -webkit-filter: drop-shadow(15px 10px 5px rgb(188, 194, 229));
   filter: drop-shadow(15px 10px 5px rgb(188, 194, 229));
-  cursor: pointer;
 }
 
 .card__icon {
@@ -117,6 +118,7 @@ footer {
   justify-content: space-between;
   background-color: var(--secondary-color);
   padding: 0px 96px;
+  min-height: 15vh;
 }
 
 .informations-container {
