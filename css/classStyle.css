@@ -44,7 +44,16 @@ header {
 }
 
 main {
-  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  max-width: 1440px;
+  width: 100%;
+  min-height: 69.75vh;
 }
 
 .status-container {
@@ -55,9 +64,28 @@ main {
   height: 50px;
   padding: 0px 96px;
   user-select: none;
+  width: 100%;
+}
+
+.filters-container {
+  display: flex;
+  gap: 24px;
 }
 
 .status__filter {
+  text-align: right;
+  background-color: var(--secondary-color);
+  appearance: none;
+  border: none;
+  outline: none;
+  color: var(--primary-color);
+  font-size: 16px;
+  padding: 8px 30px 8px 8px;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.year__filter {
   text-align: right;
   background-color: var(--secondary-color);
   appearance: none;

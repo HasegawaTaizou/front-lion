@@ -43,6 +43,13 @@ header {
 }
 
 main {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  max-width: 1440px;
+  width: 100%;
   padding: 100px 96px 60px 96px;
   display: flex;
   justify-content: space-between;

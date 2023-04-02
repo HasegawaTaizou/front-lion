@@ -46,11 +46,16 @@
     </header>
     <main>
       <div class="status-container">
-        <select name="status" class="status__filter">
-          <option class="filter__field" value="">Status</option>
-          <option class="filter__field" value="Finalizado">Finalizado</option>
-          <option class="filter__field" value="Cursando">Cursando</option>
-        </select>
+        <div class="filters-container">
+          <select name="status" class="status__filter">
+            <option class="filter__field" value="">Status</option>
+            <option class="filter__field" value="Finalizado">Finalizado</option>
+            <option class="filter__field" value="Cursando">Cursando</option>
+          </select>
+          <select name="year" class="year__filter">
+            <option class="filter__field" value="">Ano</option>
+          </select>
+        </div>
         <div class="status__legend-container">
           <span class="legend__title">LEGENDA</span>
           <div class="legend__studying-container">
@@ -63,8 +68,10 @@
           </div>
         </div>
       </div>
-      <h1 class="course__title"></h1>
-      <div class="students-container"></div>
+      <div class="content">
+        <h1 class="course__title"></h1>
+        <div class="students-container"></div>
+      </div>
     </main>
     <footer>
       <ul class="informations-container">
