@@ -119,7 +119,6 @@ const statusSelect = document.querySelector(".status__filter");
 
 const getStatusSelectValue = function () {
   const status = statusSelect.options[statusSelect.selectedIndex].value;
-  console.log(status);
   return status;
 };
 
@@ -127,7 +126,6 @@ const yearSelect = document.querySelector(".year__filter");
 
 const getYearSelectValue = function () {
   const year = yearSelect.options[yearSelect.selectedIndex].value;
-  console.log(year);
   return year;
 };
 
@@ -138,19 +136,15 @@ const fillStudentsData = async function () {
 
   if (getYearSelectValue() != "" && getStatusSelectValue() == "") {
     studentsData = await listStudentsYear(acronym, getYearSelectValue());
-    console.log("so ano");
   } else if (getYearSelectValue() == "" && getStatusSelectValue() != "") {
     studentsData = await listStudentsStatus(acronym, getStatusSelectValue());
-    console.log("so status");
   } else if (getYearSelectValue() != "" && getStatusSelectValue() != "") {
-    console.log("ambos");
     studentsData = await listStudentsStatusYear(
       acronym,
       getStatusSelectValue(),
       getYearSelectValue()
     );
   } else {
-    console.log("nenhum");
     studentsData = await listStudents(acronym);
   }
 

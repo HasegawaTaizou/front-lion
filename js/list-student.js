@@ -21,8 +21,8 @@ const listStudentSubjects = async function (registration) {
   const data = await response.json();
 
   return {
-    name: data.disciplinas[0].map((disciplina) => disciplina.nome),
-    average: data.disciplinas[0].map((disciplina) => disciplina.media),
+    name: data.disciplinas.map((disciplina) => disciplina.nome),
+    average: data.disciplinas.map((disciplina) => disciplina.media),
   };
 };
 

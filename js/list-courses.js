@@ -55,9 +55,6 @@ const fillCourseData = async function () {
         "courseName",
         courseData.name[event.currentTarget.dataset.index]
       );
-
-      console.log(localStorage.getItem("acronym"));
-      console.log(localStorage.getItem("courseName"));
     };
 
     getAcronymText();
