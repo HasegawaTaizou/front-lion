@@ -1,7 +1,7 @@
 "use strict";
 
 const listStudents = async function (acronym) {
-  const studentsData = `http://localhost:8080/v1/senai/alunos?curso=${acronym}`;
+  const studentsData = `http://localhost:8080/v1/lion-school/alunos?curso=${acronym}`;
 
   const response = await fetch(studentsData);
   const data = await response.json();
@@ -18,7 +18,8 @@ const listStudents = async function (acronym) {
 };
 
 const listStudentsStatus = async function (acronym, status) {
-  const studentsData = `http://localhost:8080/v1/senai/alunos?curso=${acronym}&status=${status}`;
+  const studentsData = 
+  `http://localhost:8080/v1/lion-school/alunos?curso=${acronym}&status=${status}`;
 
   const response = await fetch(studentsData);
   const data = await response.json();
@@ -35,7 +36,7 @@ const listStudentsStatus = async function (acronym, status) {
 };
 
 const listStudentsYear = async function (acronym, year) {
-  const studentsData = `http://localhost:8080/v1/senai/alunos?curso=${acronym}&ano=${year}`;
+  const studentsData = `http://localhost:8080/v1/lion-school/alunos?curso=${acronym}&ano=${year}`;
 
   const response = await fetch(studentsData);
   const data = await response.json();
@@ -52,7 +53,7 @@ const listStudentsYear = async function (acronym, year) {
 };
 
 const listStudentsStatusYear = async function (acronym, status, year) {
-  const studentsData = `http://localhost:8080/v1/senai/alunos?curso=${acronym}&status=${status}&ano=${year}`;
+  const studentsData = `http://localhost:8080/v1/lion-school/alunos?curso=${acronym}&status=${status}&ano=${year}`;
 
   const response = await fetch(studentsData);
   const data = await response.json();
